@@ -145,7 +145,7 @@ body{
     display: flex;
     justify-content: center;
     font-size: 3vh;
-    color: #636363;
+    color: #9F9F9F;
 }
 
 
@@ -157,7 +157,11 @@ body{
     }
 }
 @media only screen and (min-width: 2000px) {
-      
+    .logo{
+        transform: translate(-50%,30%);
+    
+        width : 790px;
+    }
 }
 @media only screen and (max-width: 1020px) {
     .typo{
