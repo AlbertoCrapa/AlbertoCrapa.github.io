@@ -1,9 +1,9 @@
+ /* GENERAL */
 @font-face {
     font-family: makanHati;
     
     src: url(/public/font/Makan\ Hati.otf);
 }
- /* GENERAL */
 *{
     font-family: makanHati;
     font-weight: 100;
@@ -16,6 +16,7 @@ body{
     margin: 0;
     background-color: #faf7f5;
 }
+
  /* ICONS SOCIAL */
 .icons{
     display: flex;
@@ -32,13 +33,15 @@ body{
     transform: scale(1.2);
     transition: .2s;
 }
-#instagram_icon:hover {
+.instagram_icon:hover {
     filter: invert(18%) sepia(98%) saturate(1007%) hue-rotate(279deg) brightness(121%) contrast(140%);
 
 }
-#email_icon:hover {
+.email_icon:hover {
     filter: invert(0.3) sepia(1) saturate(6) hue-rotate(-40deg); 
 }
+
+
 
 /* TITLE */
 .fixed{
@@ -84,7 +87,7 @@ body{
     width: fit-content;
 }
 .arrow_down{
-    animation: MoveUpDown 1s linear infinite;
+    animation: MoveUpDown 1s ease-in-out infinite;
     position: fixed;
     left: 92%;
     
@@ -129,7 +132,8 @@ body{
     display: flex;
     justify-content: center;
     font-size: 7vh;
-    
+    margin-bottom: 0.2em; 
+   
 }
 
 .p_text{
@@ -160,7 +164,7 @@ body{
     .logo{
         transform: translate(-50%,30%);
     
-        width : 790px;
+        width : 900px;
     }
 }
 @media only screen and (max-width: 1020px) {
@@ -181,7 +185,7 @@ body{
         padding-inline: 9vw;
     }
 }
-@media only screen and (max-width: 682px) {
+@media only screen and (max-width: 768px) {
     .logo{
         padding-top: 110px;
     }
@@ -192,12 +196,16 @@ body{
         display: none;
     }
     .p_text{
-        font-size: 5vw;
+        font-size: 7vw;
         padding-inline: 9vw;
     }
+    
     .arrow_down{
-        display: none ;
+        width : 33px;
+        left: 46%;
+        transform: translateY(-53vh);
     }
+
 }
 @media only screen and (max-width: 406px) {
     .logo{
