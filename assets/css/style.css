@@ -26,12 +26,16 @@ body{
     gap: 30px;
 }
 .icons a{
-    transform: scale(1);
+    transform: scale(1.2);
     transition: .2s;
 }
 .icons a:hover{
-    transform: scale(1.2);
+    transform: scale(1.4);
     transition: .2s;
+}
+.icons a:active{
+    transform: scale(1);
+    transition: .05s;
 }
 .instagram_icon:hover {
     filter: invert(18%) sepia(98%) saturate(1007%) hue-rotate(279deg) brightness(121%) contrast(140%);
@@ -43,10 +47,18 @@ body{
 }
 .icons_mobile{
     padding-top: 10px;
+    gap: 80px;
+    
 }
 .icons_mobile a{
-    transform: scale(1.5);
+    display: flex;
+    justify-content: center;
+    color: black;
+    gap: 10px;
+    width: 39px;
+    
 }
+
 
 
 
@@ -150,11 +162,9 @@ body{
     text-align: center;
     
     font-size: 2vw;
-    padding-inline: 8vw;
+    padding-inline: 15%;
 }
-.icons_mobile{
-    display: none;
-}
+
 
 
 
