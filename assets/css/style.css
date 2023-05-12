@@ -35,10 +35,17 @@ body{
 }
 .instagram_icon:hover {
     filter: invert(18%) sepia(98%) saturate(1007%) hue-rotate(279deg) brightness(121%) contrast(140%);
+    /* provare a usare: background-clip  */
 
 }
 .email_icon:hover {
     filter: invert(0.3) sepia(1) saturate(6) hue-rotate(-40deg); 
+}
+.icons_mobile{
+    padding-top: 10px;
+}
+.icons_mobile a{
+    transform: scale(1.5);
 }
 
 
@@ -84,7 +91,7 @@ body{
     width : 630px;
 }
 .logo img{
-    width: fit-content;
+    
 }
 .arrow_down{
     animation: MoveUpDown 1s ease-in-out infinite;
@@ -92,6 +99,7 @@ body{
     left: 92%;
     
 }
+
 @keyframes MoveUpDown {
     0%, 100% {
         bottom: 40px;
@@ -144,6 +152,9 @@ body{
     font-size: 2vw;
     padding-inline: 8vw;
 }
+.icons_mobile{
+    display: none;
+}
 
 
 
@@ -160,6 +171,9 @@ body{
 /* RESOLUTIONS */
 @media only screen and (max-height: 619px) and (min-width: 682px) {
     .logo{
+        display: none;
+    }
+    .arrow_down{
         display: none;
     }
 }
@@ -198,18 +212,26 @@ body{
     .icons{
         display: none;
     }
+    .icons_mobile{
+        display:flex;
+    }
     .p_text{
         font-size: 7vw;
         padding-inline: 9vw;
     }
     .pencil{
-        width: 35px;
+        width: 32px;
     }
     
     .arrow_down{
+        
         width : 33px;
         left: 46%;
-        transform: translateY(-53vh);
+        
+        transform: translateY(-53vh) rotate(180deg);
+    }
+    .icons_mobile{
+        display: normal;
     }
 
 }
