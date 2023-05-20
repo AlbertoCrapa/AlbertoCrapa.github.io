@@ -98,7 +98,7 @@ body{
 .logo{
     position: fixed;
     left: 50%;
-    transform: translate(-50%,35%);
+    transform: translate(-50%,37%);
     bottom: 0;
     width : 630px;
 }
@@ -138,6 +138,12 @@ body{
    
     transform: translateY(-4vw);
     z-index: 1;
+}
+.wave_small{
+    display: flex;
+}
+.wave_big{
+    display: none;
 }
 .container{
     z-index: 2;
@@ -189,7 +195,7 @@ body{
 }
 @media only screen and (min-width: 2000px) {
     .logo{
-        transform: translate(-50%,30%);
+        transform: translate(-50%,34%);
     
         width : 900px;
     }
@@ -232,16 +238,27 @@ body{
     .pencil{
         width: 32px;
     }
+    .pc{
+        width: 47px;
+    }
     
     .arrow_down{
         
         width : 33px;
         left: 46%;
         
-        transform: translateY(-53vh) rotate(180deg);
+        transform: translateY(-53vh);
+        /* transform: translateY(-53vh) rotate(180deg); */
     }
     .icons_mobile{
         display: normal;
+    }
+    .wave_small{
+        display: none;
+    }
+    .wave_big{
+        transform: translateY(-8vw);
+        display: flex;
     }
 
 }
