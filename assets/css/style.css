@@ -254,7 +254,7 @@ body{
         display: normal;
     }
     .wave_small{
-        display: none;
+        display: none !important;
     }
     .wave_big{
         transform: translateY(-8vw);
