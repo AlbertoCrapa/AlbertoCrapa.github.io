@@ -15,25 +15,25 @@ const resetBlinkAnim = () => {
 };
 
 
-var winPos;
+let winPos;
 window.scrollTo(15,15);
-var flag = false;
+let flag = false;
 document.querySelector("*").addEventListener("click", function (e) {
 
   var div = document.createElement("div");
   div.classList.add("click-effect-div");
 
-  document.querySelector("body").appendChild(div);
-  div.style.left = e.pageX + "px";
-  div.style.top = e.pageY + "px";
-  var maxElems = 16;
+  document.querySelector(".canvas").appendChild(div);
+  div.style.left = e.clientX + "px";
+  div.style.top = e.clientY + "px";
+  let maxElems = 16;
   for (i = 0; i < maxElems; i++) {
-    var span = document.createElement("span");
+    let span = document.createElement("span");
     span.classList.add("click-effect-span");
-    var newSpan = div.appendChild(span);
-    var deg = i * (360 / maxElems) + Math.floor(Math.random() * 15);
-    var height = 20 + Math.floor(Math.random()*30);
-    var width = 4 + Math.floor(Math.random()*10);
+    let newSpan = div.appendChild(span);
+    let deg = i * (360 / maxElems) + Math.floor(Math.random() * 15);
+    let height = 20 + Math.floor(Math.random()*30);
+    let width = 4 + Math.floor(Math.random()*10);
     newSpan.style.height = height + "px";
     newSpan.style.width = width + "px";
     newSpan.style.transform = "rotate(" + deg + "deg)";
@@ -46,7 +46,7 @@ document.querySelector("*").addEventListener("click", function (e) {
         el.style.opacity = "0";
       });
       window.setTimeout(function(){
-        document.body.removeChild(div);
+        document.querySelector(".canvas").removeChild(div);
       }, 400)
     }
     
