@@ -121,18 +121,17 @@ _app.clickEffect = () => {
   let flag = false;
   let checkIfEyeHurt = false;
   document.querySelector("*").addEventListener("click", function (e) {
-    // console.log(e.target);
-    if (e.target.classList[0] == "circle" && !_app.checkIfEyeDizzy){
-      _app.handleSmileClick();
-    }
+    console.log(e.target);
 
+
+    console.log("DWDDA");
     let div = document.createElement("div");
     div.classList.add("click-effect-div");
 
     document.querySelector(".canvas").appendChild(div);
     div.style.left = e.clientX + "px";
     div.style.top = e.clientY + "px";
-    let maxElems = 11; //16
+    let maxElems = 9; //16
     for (i = 0; i < maxElems; i++) {
       let span = document.createElement("span");
       span.classList.add("click-effect-span");
@@ -154,6 +153,10 @@ _app.clickEffect = () => {
         document.querySelector(".canvas").removeChild(div);
       }, 400);
     });
+
+    if (e.target.classList[0] == "circle" && !_app.checkIfEyeDizzy){
+      _app.handleSmileClick();
+    }
   });
 };
 _app.startUp();

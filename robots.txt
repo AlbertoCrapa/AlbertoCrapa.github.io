@@ -1,0 +1,3 @@
+User-agent: Googlebot
+Disallow: /public/svg/albyeah_logo_*.svg
+Disallow: /public/svg/wave*.svg
