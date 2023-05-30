@@ -14,7 +14,6 @@ html, body {
     overscroll-behavior: none;
 }
 body{
-    
     margin: 0;
     background-color: #faf7f5;
 }
@@ -29,7 +28,6 @@ body{
     top: 0;
 }
 .container{
-    
     z-index: 5;
     display: flex;
     justify-content: center;
@@ -37,7 +35,6 @@ body{
     position: relative;
     margin-top: -20vw;
 }
-
 @keyframes shake {
     0% { transform: translate(1px, 1px) rotate(0deg); }
     10% { transform: translate(-1px, -2px) rotate(-1deg); }
@@ -53,12 +50,14 @@ body{
 }
   
 
+
+
 /* ICONS SOCIAL */
 .icons{
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-top: 50px;
+    padding-top: 40px;
     gap: 30px;
    
 }
@@ -99,7 +98,6 @@ body{
 
 
 /* TITLE */
-
 .fixed{
     position: fixed;
     left: 50%;
@@ -117,15 +115,12 @@ body{
     width: 45vw;
     transition: 0.5s;
 }
-
 .typo h1{
     font-size: 3.5vw;
     color: #878787;
     margin-top: 5px;
     transition: 0.5s;
 }
-
-
 .logo{
     position: fixed;
     left: 50%;
@@ -137,24 +132,21 @@ body{
 .no-click{
     pointer-events: none;
 }
-
 #hurtEye{
     display: none;
 }
-
 .arrow_down{
     animation: MoveUpDown 1s ease-in-out infinite;
     position: fixed;
     left: 92%;
     
 }
-
 @keyframes MoveUpDown {
     0%, 100% {
-        bottom: 40px;
+        bottom:30px;
     }
     50% {
-        bottom: 50px;
+        bottom: 40px;
     }
 }
 
@@ -172,7 +164,6 @@ body{
     
 }
 .wave{
-   
     transform: translateY(-4vw);
     z-index: 1;
 }
@@ -206,45 +197,33 @@ body{
 
 
 /* WORKS SECTION  */
-
-
 .footer h1{
     display: flex;
     justify-content: center;
     font-size: 3vh;
     color: #9F9F9F;
 }
-
-
-
 .click-effect-div{
     position:absolute;
     transform:translate(-50%, -50%);
     width:50px;
     height:50px;
-   
     z-index: 9;
-    
 }
 .click-effect-span{
     display:block;
     width:4px;
     height:90px;
-    
     border-radius:6px; /* 2PX */
     background:rgb(141, 141, 141);
     box-shadow:0 0 4px rgba(255,255,255,0.5);
     position:absolute;
     left:50%;
     bottom:50%;
-    
     transform-origin:center bottom;
     transition:transform 0.2s, opacity 0.45s;
     transition-timing-function:ease-out;
-    
-    
-    
-  }
+}
 
 /* RESOLUTIONS */
 @media only screen and (max-height: 619px) and (min-width: 682px) {

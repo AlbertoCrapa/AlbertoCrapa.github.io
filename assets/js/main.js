@@ -1,34 +1,128 @@
 const _app = {};
 _app.isBlinking = true;
+_app.smileIsAngry = false;
+_app.checkIfEyeDizzy = false;
+_app.smileAngryCounter =0;
+
+
 _app.startUp = () => {
-  _app.openEye = document.querySelector("#openEye");
+  _app.eye = document.querySelector("#openEye");
   blinkAnim();
   _app.clickEffect();
   _app.mouseVelocityDetection();
-  _app.shakeDetection();
+  _app.shakePhoneDetection();
   window.setInterval(blinkAnim, 4000);
 };
-
 const blinkAnim = () => {
   if (_app.isBlinking) {
-    document.getElementById("openEye").src="/public/svg/albyeah_logo_blink.svg";
-    const timeout = setTimeout(resetBlinkAnim, 80);
+    console.log("Blink Started");
+    _app.setSmileState("blink");
+    setTimeout(_app.resetBlinkAnim, 80);
   }
 };
-const resetBlinkAnim = () => {
-  document.getElementById("openEye").src="/public/svg/albyeah_logo_normal.svg";
+_app.resetBlinkAnim = () => {
+  if (_app.smileIsAngry){
+    // _app.setSmileState("angry");
+  }
+  else _app.setSmileState("normal");
+  
 };
+_app.mouseVelocityDetection = () => {
+    let prevEvent, currentEvent;
+    document.documentElement.onmousemove = function (event) {
+    currentEvent = event;
+  };
+
+  let prevSpeed = 0;
+  let detecCounter = 0;
+  let mouseSpeed = 0;
+  setInterval(function () {
+    
+    if (prevEvent && currentEvent) {
+      let movementX = Math.abs(currentEvent.screenX - prevEvent.screenX);
+      let movementY = Math.abs(currentEvent.screenY - prevEvent.screenY);
+      let movement = Math.sqrt(movementX * movementX + movementY * movementY);
+      //speed=movement/100ms= movement/0.1s= 10*movement/s
+      mouseSpeed = 10 * movement; //current speed
+      // console.log(Math.round(speed));
+      
+
+      detecCounter++;
+      // console.log(detecCounter);
+      if (mouseSpeed == 0 ){
+        detecCounter = 0;
+        setTimeout(() => {
+          //ok
+        }, 3000);
+      }
+      if (mouseSpeed > 1000 && detecCounter == 15) {
+        
+        _app.setSmileDizzy();
+      }
+      if (detecCounter == 25) detecCounter = 0;
+    }
+
+    prevEvent = currentEvent;
+    prevSpeed = mouseSpeed;
+  }, 100);
+};
+_app.shakePhoneDetection = () => {
+  let myShakeEvent = new Shake({
+    threshold: 15, // optional shake strength threshold
+    timeout: 1000, // optional, determines the frequency of event generation
+  });
+  myShakeEvent.start();
+  window.addEventListener("shake", shakeEventDidOccur, false);
+  //function to call when shake occurs
+  function shakeEventDidOccur() {
+    _app.setSmileDizzy();
+  }
+};
+_app.setSmileState= (state_name) => {
+  _app.eye.src=`/public/svg/albyeah_logo_${state_name}.svg`;
+};
+_app.setSmileDizzy = () =>{
+  if (_app.checkIfEyeDizzy == false){
+    _app.checkIfEyeDizzy = true;
+    _app.isBlinking = false;
+    _app.setSmileState("dizzy");
+    setTimeout(() => {
+      console.log("finish dizzy");
+      _app.resetBlinkAnim();
+      _app.isBlinking = true;
+      _app.checkIfEyeDizzy = false;
+    }, 7_000);
+  }
+};
+_app.handleSmileClick = () =>{
+  _app.setSmileState("hurt");
+  _app.smileAngryCounter++;
+  console.log(_app.smileAngryCounter);
+  
+  if (checkIfEyeHurt == false ){
+    
+    checkIfEyeHurt = true;
+    _app.isBlinking = false;
+    setTimeout(() => {
+      _app.resetBlinkAnim();
+      _app.isBlinking = true;
+      checkIfEyeHurt = false;
+    },1000);
+  }
+};
+
+
 
 
 _app.clickEffect = () => {
   let winPos;
   window.scrollTo(15, 15);
   let flag = false;
+  let checkIfEyeHurt = false;
   document.querySelector("*").addEventListener("click", function (e) {
-    console.log(e.target);
-    if (e.target.classList[0] == "circle"){
-     
-      document.getElementById("openEye").src="/public/svg/albyeah_logo_hurt.svg";
+    // console.log(e.target);
+    if (e.target.classList[0] == "circle" && !_app.checkIfEyeDizzy){
+      _app.handleSmileClick();
     }
 
     let div = document.createElement("div");
@@ -61,61 +155,4 @@ _app.clickEffect = () => {
     });
   });
 };
-
-_app.mouseVelocityDetection = () => {
-    let prevEvent, currentEvent;
-    document.documentElement.onmousemove = function (event) {
-    currentEvent = event;
-  };
-
-  let prevSpeed = 0;
-  let detecCounter = 0;
-  setInterval(function () {
-    if (prevEvent && currentEvent) {
-      let movementX = Math.abs(currentEvent.screenX - prevEvent.screenX);
-      let movementY = Math.abs(currentEvent.screenY - prevEvent.screenY);
-      let movement = Math.sqrt(movementX * movementX + movementY * movementY);
-      //speed=movement/100ms= movement/0.1s= 10*movement/s
-      let speed = 10 * movement; //current speed
-      // console.log(Math.round(speed));
-      
-
-      detecCounter++;
-      if (speed == 0 ){
-        setTimeout(() => {
-          //ok
-        }, 3000);
-      }
-      if (speed > 1000 && detecCounter == 25) {
-        
-        //"Dizzy";
-      }
-      if (detecCounter == 25) detecCounter = 0;
-    }
-
-    prevEvent = currentEvent;
-    prevSpeed = speed;
-  }, 100);
-};
-
-_app.shakeDetection = () => {
-  let myShakeEvent = new Shake({
-    threshold: 15, // optional shake strength threshold
-    timeout: 1000, // optional, determines the frequency of event generation
-  });
-  myShakeEvent.start();
-  window.addEventListener("shake", shakeEventDidOccur, false);
-
-  //function to call when shake occurs
-  function shakeEventDidOccur() {
-    //put your own code here etc.
-    alert("shake!");
-    document.getElementById("state").innerText = "SHAKE";
-  }
-};
-
-_app.resetSmileToDefault= () => {
-  
-}
-
 _app.startUp();
