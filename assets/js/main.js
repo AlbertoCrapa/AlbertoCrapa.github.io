@@ -78,17 +78,17 @@ _app.mouseVelocityDetection = () => {
       //speed=movement/100ms= movement/0.1s= 10*movement/s
       let speed = 10 * movement; //current speed
       // console.log(Math.round(speed));
-      document.getElementById("speed").innerText = Math.round(speed);
+      
 
       detecCounter++;
       if (speed == 0 ){
         setTimeout(() => {
-          document.getElementById("state").innerText ="ok";
+          //ok
         }, 3000);
       }
       if (speed > 1000 && detecCounter == 25) {
         
-        document.getElementById("state").innerText ="Dizzy";
+        //"Dizzy";
       }
       if (detecCounter == 25) detecCounter = 0;
     }
