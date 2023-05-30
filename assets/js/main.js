@@ -15,7 +15,7 @@ _app.startUp = () => {
 };
 const blinkAnim = () => {
   if (_app.isBlinking) {
-    console.log("Blink Started");
+    // console.log("Blink Started");
     _app.setSmileState("blink");
     setTimeout(_app.resetBlinkAnim, 80);
   }
@@ -45,21 +45,22 @@ _app.mouseVelocityDetection = () => {
       //speed=movement/100ms= movement/0.1s= 10*movement/s
       mouseSpeed = 10 * movement; //current speed
       // console.log(Math.round(speed));
-      
-
-      detecCounter++;
       // console.log(detecCounter);
       if (mouseSpeed == 0 ){
-        detecCounter = 0;
+        
         setTimeout(() => {
           //ok
         }, 3000);
       }
+      
       if (mouseSpeed > 1000 && detecCounter == 15) {
         
         _app.setSmileDizzy();
       }
-      if (detecCounter == 25) detecCounter = 0;
+      if (mouseSpeed > 500){
+        detecCounter++;
+      }
+      else detecCounter = 0;
     }
 
     prevEvent = currentEvent;
@@ -97,7 +98,7 @@ _app.setSmileDizzy = () =>{
 _app.handleSmileClick = () =>{
   _app.setSmileState("hurt");
   _app.smileAngryCounter++;
-  console.log(_app.smileAngryCounter);
+  // console.log(_app.smileAngryCounter);
   
   if (checkIfEyeHurt == false ){
     
