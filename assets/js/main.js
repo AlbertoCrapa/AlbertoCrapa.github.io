@@ -4,32 +4,33 @@ _app.startUp = () => {
   _app.openEye = document.querySelector("#openEye");
   blinkAnim();
   _app.clickEffect();
+  _app.mouseVelocityDetection();
+  _app.shakeDetection();
   window.setInterval(blinkAnim, 4000);
-  
 };
 
-
 const blinkAnim = () => {
-  if (_app.isBlinking){
-    openEye.style.visibility = "hidden";
+  if (_app.isBlinking) {
+    document.getElementById("openEye").src="/public/svg/albyeah_logo_blink.svg";
     const timeout = setTimeout(resetBlinkAnim, 80);
   }
 };
 const resetBlinkAnim = () => {
-  openEye.style.visibility = "visible";
+  document.getElementById("openEye").src="/public/svg/albyeah_logo_normal.svg";
 };
+
 
 _app.clickEffect = () => {
   let winPos;
   window.scrollTo(15, 15);
   let flag = false;
   document.querySelector("*").addEventListener("click", function (e) {
-  
-    // console.log(e.target);
-    // if (e.target.classList[0] == "smile"){
-    //   console.log("CLICCATO");
-    // }
-    
+    console.log(e.target);
+    if (e.target.classList[0] == "circle"){
+     
+      document.getElementById("openEye").src="/public/svg/albyeah_logo_hurt.svg";
+    }
+
     let div = document.createElement("div");
     div.classList.add("click-effect-div");
 
@@ -57,13 +58,64 @@ _app.clickEffect = () => {
       window.setTimeout(function () {
         document.querySelector(".canvas").removeChild(div);
       }, 400);
-
-     
     });
-
-    
   });
 };
 
+_app.mouseVelocityDetection = () => {
+    let prevEvent, currentEvent;
+    document.documentElement.onmousemove = function (event) {
+    currentEvent = event;
+  };
+
+  let prevSpeed = 0;
+  let detecCounter = 0;
+  setInterval(function () {
+    if (prevEvent && currentEvent) {
+      let movementX = Math.abs(currentEvent.screenX - prevEvent.screenX);
+      let movementY = Math.abs(currentEvent.screenY - prevEvent.screenY);
+      let movement = Math.sqrt(movementX * movementX + movementY * movementY);
+      //speed=movement/100ms= movement/0.1s= 10*movement/s
+      let speed = 10 * movement; //current speed
+      // console.log(Math.round(speed));
+      document.getElementById("speed").innerText = Math.round(speed);
+
+      detecCounter++;
+      if (speed == 0 ){
+        setTimeout(() => {
+          document.getElementById("state").innerText ="ok";
+        }, 3000);
+      }
+      if (speed > 1000 && detecCounter == 25) {
+        
+        document.getElementById("state").innerText ="Dizzy";
+      }
+      if (detecCounter == 25) detecCounter = 0;
+    }
+
+    prevEvent = currentEvent;
+    prevSpeed = speed;
+  }, 100);
+};
+
+_app.shakeDetection = () => {
+  let myShakeEvent = new Shake({
+    threshold: 15, // optional shake strength threshold
+    timeout: 1000, // optional, determines the frequency of event generation
+  });
+  myShakeEvent.start();
+  window.addEventListener("shake", shakeEventDidOccur, false);
+
+  //function to call when shake occurs
+  function shakeEventDidOccur() {
+    //put your own code here etc.
+    alert("shake!");
+    document.getElementById("state").innerText = "SHAKE";
+  }
+};
+
+_app.resetSmileToDefault= () => {
+  
+}
 
 _app.startUp();

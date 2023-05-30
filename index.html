@@ -5,13 +5,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="I'm a creative developer based in Milan. I specialise in web and videogame development." />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
     <link rel="icon" type="image/x-icon" href="/public/favicon.png" />
     <title>Albyeah - Alberto Crapanzano</title>
+    
     <link rel="stylesheet" href="/assets/css/style.css" />
+    <script type="text/javascript" src="assets/js/shake.js"></script>
 </head>
 
 <body>
     <div class="fixed">
+        <!-- <span id="speed">999</span>
+        <span id="state">ok</span> -->
         <div class="icons">
           <a class="instagram_icon" target="_blank" href="https://www.instagram.com/albyeah/">
             <img src="/public/svg/instagram_icon.svg" alt="instagram_svg" />
@@ -31,15 +36,17 @@
 
     <div class="smile_logo">
       <div class="logo">
-        <img class="smile" draggable="false" src="/public/svg/albyeah_logo_blink.svg" alt="logo_svg"/>
+        <img class="circle smile" draggable="false" src="/public/svg/albyeah_logo_circle.svg" alt="logo_svg"/>
       </div>
 
-      <div class="logo no-click" id="openEye">
-        <img class="no-click" draggable="false" src="/public/svg/albyeah_logo.svg" alt="logo_svg"/>
+      <div class="logo no-click" >
+        <img class="no-click" id="openEye" draggable="false" src="/public/svg/albyeah_logo.svg" alt="logo_svg"/>
       </div>
-      <div class="logo no-click" id="hurtEye">
-        <img class="no-click" draggable="false" src="" alt="logo_svg"/>
+
+      <div class="logo no-click" >
+        <img class="no-click"  draggable="false" src="/public/svg/albyeah_logo_smile.svg" alt="logo_svg"/>
       </div>
+      
     </div>
  
 
@@ -96,6 +103,31 @@
     
 
     <!-- JAVASCRIPT -->
+    
+    <script type="text/javascript">
+      window.onload = function() {
+       
+          //create a new instance of shake.js.
+          let myShakeEvent = new Shake({
+              threshold: 15
+          });
+      
+          // start listening to device motion
+          myShakeEvent.start();
+      
+          // register a shake event
+          window.addEventListener('shake', shakeEventDidOccur, false);
+          
+          //shake event callback
+          function shakeEventDidOccur(){
+      
+              //put your own code here etc.
+              alert('Shake!');
+          }
+      };
+    </script>
+
+      
     <script src="/assets/js/main.js"></script>
 </body>
 </html>
