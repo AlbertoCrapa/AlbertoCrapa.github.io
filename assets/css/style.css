@@ -66,6 +66,7 @@ body{
     transition: .2s;
     
 }
+
 .icons a:hover{
     transform: scale(1.4);
     transition: .2s;
@@ -76,7 +77,16 @@ body{
 .instagram_icon:hover {
     filter: invert(18%) sepia(98%) saturate(1007%) hue-rotate(279deg) brightness(121%) contrast(140%);
     /* provare a usare: background-clip  */
+}
 
+.icons a:visited{
+    transform: scale(1.2);
+}
+.instagram_icon:visited {
+    filter: none;
+}
+.email_icon:visited {
+    filter: none;
 }
 .email_icon:hover {
     filter: invert(0.3) sepia(1) saturate(6) hue-rotate(-40deg); 

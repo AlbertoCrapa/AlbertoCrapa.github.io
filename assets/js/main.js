@@ -3,6 +3,7 @@ _app.isBlinking = true;
 _app.smileIsAngry = false;
 _app.checkIfEyeDizzy = false;
 _app.smileAngryCounter =0;
+_app.checkIfEyeHurt = false;
 
 
 _app.startUp = () => {
@@ -92,7 +93,7 @@ _app.setSmileDizzy = () =>{
       _app.resetBlinkAnim();
       _app.isBlinking = true;
       _app.checkIfEyeDizzy = false;
-    }, 7_000);
+    }, 2_000);
   }
 };
 _app.handleSmileClick = () =>{
@@ -100,14 +101,14 @@ _app.handleSmileClick = () =>{
   _app.smileAngryCounter++;
   // console.log(_app.smileAngryCounter);
   
-  if (checkIfEyeHurt == false ){
+  if (_app.checkIfEyeHurt == false ){
     
-    checkIfEyeHurt = true;
+    _app.checkIfEyeHurt = true;
     _app.isBlinking = false;
     setTimeout(() => {
       _app.resetBlinkAnim();
       _app.isBlinking = true;
-      checkIfEyeHurt = false;
+      _app.checkIfEyeHurt = false;
     },1000);
   }
 };
@@ -119,7 +120,7 @@ _app.clickEffect = () => {
   let winPos;
   window.scrollTo(15, 15);
   let flag = false;
-  let checkIfEyeHurt = false;
+
   document.querySelector("*").addEventListener("click", function (e) {
     console.log(e.target);
 
