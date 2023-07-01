@@ -48,6 +48,11 @@ body{
     90% { transform: translate(1px, 2px) rotate(0deg); }
     100% { transform: translate(1px, -2px) rotate(-1deg); }
 }
+@keyframes clickShrink {
+    0% { scale: 1 }
+    20% { scale: 0.7; }
+    100% { scale: 1; }
+}
   
 
 
@@ -145,6 +150,10 @@ body{
 #hurtEye{
     display: none;
 }
+.smile{
+    border-radius: 80%; 
+    /* collider dello smile preciso  */
+}   
 .arrow_down{
     animation: MoveUpDown 1s ease-in-out infinite;
     position: fixed;
@@ -154,9 +163,11 @@ body{
 @keyframes MoveUpDown {
     0%, 100% {
         bottom:30px;
+        
     }
     50% {
         bottom: 40px;
+        
     }
 }
 
@@ -297,7 +308,6 @@ body{
         
         width : 33px;
         left: 46%;
-        
         transform: translateY(-53vh);
         /* transform: translateY(-53vh) rotate(180deg); */
     }

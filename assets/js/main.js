@@ -2,19 +2,21 @@ const _app = {};
 _app.isBlinking = true;
 _app.smileIsAngry = false;
 _app.checkIfEyeDizzy = false;
-_app.smileAngryCounter =0;
+_app.smileAngryCounter = 0;
 _app.checkIfEyeHurt = false;
 
 
 _app.startUp = () => {
   _app.eye = document.querySelector("#openEye");
-  blinkAnim();
+  _app.face = document.querySelector(".smile_logo");
+  
+  _app.blinkAnim();
   _app.clickEffect();
   _app.mouseVelocityDetection();
   _app.shakePhoneDetection();
-  window.setInterval(blinkAnim, 4000);
+  window.setInterval(_app.blinkAnim, 4000);
 };
-const blinkAnim = () => {
+_app.blinkAnim = () => {
   if (_app.isBlinking) {
     // console.log("Blink Started");
     _app.setSmileState("blink");
@@ -97,6 +99,7 @@ _app.setSmileDizzy = () =>{
   }
 };
 _app.handleSmileClick = () =>{
+  
   _app.setSmileState("hurt");
   _app.smileAngryCounter++;
   // console.log(_app.smileAngryCounter);
@@ -109,6 +112,7 @@ _app.handleSmileClick = () =>{
       _app.resetBlinkAnim();
       _app.isBlinking = true;
       _app.checkIfEyeHurt = false;
+
     },1000);
   }
 };
@@ -122,10 +126,8 @@ _app.clickEffect = () => {
   let flag = false;
 
   document.querySelector("*").addEventListener("click", function (e) {
-    console.log(e.target);
-
-
-    console.log("DWDDA");
+    // console.log(e.target);
+    // console.log("DWDDA");
     let div = document.createElement("div");
     div.classList.add("click-effect-div");
 
@@ -157,6 +159,7 @@ _app.clickEffect = () => {
 
     if (e.target.classList[0] == "circle" && !_app.checkIfEyeDizzy){
       _app.handleSmileClick();
+      // 
     }
   });
 };
