@@ -1,0 +1,341 @@
+ /* GENERAL */
+@font-face {
+    font-family: makanHati;
+    
+    src: url(/public/font/Makan\ Hati.otf);
+}
+*{
+    font-family: makanHati;
+    font-weight: 100;
+    user-select: none;
+}
+html, body {
+    
+    overscroll-behavior: none;
+}
+body{
+    margin: 0;
+    background-color: #faf7f5;
+}
+.canvas { 
+    height: 100vh; 
+    width: 100vw; 
+    display: block;
+    position: fixed;
+    z-index: 2;
+    pointer-events: none;
+    left: 0;
+    top: 0;
+}
+.container{
+    z-index: 5;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+    margin-top: -20vw;
+}
+@keyframes shake {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    10% { transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { transform: translate(-3px, 0px) rotate(1deg); }
+    30% { transform: translate(3px, 2px) rotate(0deg); }
+    40% { transform: translate(1px, -1px) rotate(1deg); }
+    50% { transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { transform: translate(-3px, 1px) rotate(0deg); }
+    70% { transform: translate(3px, 1px) rotate(-1deg); }
+    80% { transform: translate(-1px, -1px) rotate(1deg); }
+    90% { transform: translate(1px, 2px) rotate(0deg); }
+    100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+@keyframes clickShrink {
+    0% { scale: 1 }
+    20% { scale: 0.7; }
+    100% { scale: 1; }
+}
+  
+
+
+
+/* ICONS SOCIAL */
+.icons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 40px;
+    gap: 30px;
+   
+}
+.icons a{
+    transform: scale(1.2);
+    transition: .2s;
+    
+}
+
+.icons a:hover{
+    transform: scale(1.4);
+    transition: .2s;
+}
+.icons a:active{
+    transform: scale(1);
+}
+.instagram_icon:hover {
+    filter: invert(18%) sepia(98%) saturate(1007%) hue-rotate(279deg) brightness(121%) contrast(140%);
+    /* provare a usare: background-clip  */
+}
+
+.icons a:visited{
+    transform: scale(1.2);
+}
+.instagram_icon:visited {
+    filter: none;
+}
+.email_icon:visited {
+    filter: none;
+}
+.email_icon:hover {
+    filter: invert(0.3) sepia(1) saturate(6) hue-rotate(-40deg); 
+}
+.icons_mobile{
+    padding-top: 10px;
+    gap: 80px;
+    
+}
+.icons_mobile a{
+    display: flex;
+    justify-content: center;
+    color: black;
+    gap: 10px;
+    /* width: 39px; */ 
+}
+
+
+
+
+/* TITLE */
+.fixed{
+    position: fixed;
+    left: 50%;
+    transform: translate(-50%,0);
+    z-index: 0;
+}
+.typo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 20px;
+    flex-direction: column;
+}
+.typo img{
+    width: 45vw;
+    transition: 0.5s;
+}
+.typo h1{
+    font-size: 3.5vw;
+    color: #878787;
+    margin-top: 5px;
+    transition: 0.5s;
+}
+.logo{
+    position: fixed;
+    left: 50%;
+    transform: translate(-50%,37%);
+    bottom: 0;
+    width : 630px;
+    
+}
+.no-click{
+    pointer-events: none;
+}
+#hurtEye{
+    display: none;
+}
+.smile{
+    border-radius: 80%; 
+    /* collider dello smile preciso  */
+}   
+.arrow_down{
+    animation: MoveUpDown 1s ease-in-out infinite;
+    position: fixed;
+    left: 92%;
+    
+}
+@keyframes MoveUpDown {
+    0%, 100% {
+        bottom:30px;
+        
+    }
+    50% {
+        bottom: 40px;
+        
+    }
+}
+
+
+
+/* MOVE*/
+.bg{
+    position: absolute;
+    width: 100%;
+    margin-top: 110vh;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    background-color: #CBCBCB;
+    
+}
+.wave{
+    transform: translateY(-4vw);
+    z-index: 1;
+}
+.wave_small{
+    display: flex;
+}
+.wave_big{
+    display: none;
+}
+
+
+/* ABOUT SECTION  */
+.about-section{
+    padding-bottom: 40px;
+}
+.title{
+    display: flex;
+    justify-content: center;
+    font-size: 7vh;
+    margin-bottom: 0.2em; 
+    gap: 15px;
+}
+.p_text{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    
+    font-size: 2vw;
+    padding-inline: 15%;
+}
+
+
+/* WORKS SECTION  */
+.footer h1{
+    display: flex;
+    justify-content: center;
+    font-size: 3vh;
+    color: #9F9F9F;
+}
+.click-effect-div{
+    position:absolute;
+    transform:translate(-50%, -50%);
+    width:50px;
+    height:50px;
+    z-index: 9;
+}
+.click-effect-span{
+    display:block;
+    width:4px;
+    height:90px;
+    border-radius:6px; /* 2PX */
+    background:rgb(153, 153, 153);
+    box-shadow:0 0 4px rgba(255,255,255,0.5);
+    position:absolute;
+    left:50%;
+    bottom:50%;
+    transform-origin:center bottom;
+    transition:transform 0.2s, opacity 0.45s;
+    transition-timing-function:ease-out;
+}
+
+/* RESOLUTIONS */
+@media only screen and (max-height: 619px) and (min-width: 682px) {
+    .logo{
+        display: none;
+    }
+    .arrow_down{
+        display: none;
+    }
+}
+@media only screen and (min-width: 2000px) {
+    .logo{
+        transform: translate(-50%,34%);
+    
+        width : 900px;
+    }
+}
+@media only screen and (max-width: 1020px) {
+    .typo{
+        padding-top: 30px;
+    }
+    .typo h1{
+        font-size: 6vw;
+    }
+    .typo img{
+        width: 75vw;
+    }
+    .logo{
+        
+    }
+    .p_text{
+        font-size: 4vw;
+        padding-inline: 9vw;
+    }
+}
+@media only screen and (max-width: 768px) {
+    .logo{
+        padding-top: 110px;
+    }
+    .typo img{
+        width: 75vw;
+    }
+    .icons{
+        display: none;
+    }
+    .icons_mobile{
+        display:flex;
+    }
+    .p_text{
+        font-size: 7vw;
+        padding-inline: 9vw;
+    }
+    .pencil{
+        width: 32px;
+    }
+    .pc{
+        width: 47px;
+    }
+    
+    .arrow_down{
+        
+        width : 33px;
+        left: 46%;
+        transform: translateY(-53vh);
+        /* transform: translateY(-53vh) rotate(180deg); */
+    }
+    .icons_mobile{
+        display: normal;
+    }
+    .wave_small{
+        display: none !important;
+    }
+    .wave_big{
+        transform: translateY(-8vw);
+        display: flex;
+    }
+
+}
+@media only screen and (max-width: 406px) {
+    .logo{
+        width : 486px;
+        transform: translate(-50%,28%);
+    }
+
+    
+}
+@media only screen and (max-width: 295px) {
+    .logo{
+        width : 400px;
+        transform: translate(-50%,28%);
+    }
+
+    
+}

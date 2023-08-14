@@ -1,111 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="I'm a creative developer based in Milan. I specialise in web and videogame development." />
+    <meta name="description" content="I'm a creative developer based in Milan. I specialise in web and videogame development. Just follow me and let’s keep in touch through my social pages." />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <link rel="icon" type="image/x-icon" href="/public/favicon.png" />
     <title>Albyeah - Alberto Crapanzano</title>
     
     <link rel="stylesheet" href="/assets/css/style.css" />
-    <script type="text/javascript" src="assets/js/shake.js"></script>
+    <link rel="stylesheet" href="/assets/css/bubbles.css" />
 </head>
 
 <body>
-    <div class="fixed">
-        <!-- <span id="speed">999</span>
-        <span id="state">ok</span> -->
-        <div class="icons">
-          <a class="instagram_icon" target="_blank" href="https://www.instagram.com/albyeah/">
-            <img src="/public/svg/instagram_icon.svg" alt="instagram_svg" />
-          </a>
-          <a class="email_icon" target="_blank" href="mailto:crapaalbi03@gmail.com">
-            <img src="/public/svg/mail_icon.svg" alt="email_svg" />
-          </a>
-        </div>
+  
+   <div class="bubbles fade-in">
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+  </div>   
 
-        <div class="typo">
-          <img src="/public/svg/albyeah_typo.svg" alt="typo_svg" />
-          <h1>Alberto Crapanzano</h1>
-        </div>
-    </div>   
-
-    <img class="arrow_down" src="/public/svg/arrow_0.svg" alt="arrow0_svg" />
+  <div class="big-main-logo">
+    <img src="./public/svg/smile&logo.svg" alt="Alby Logo" class="big-main-logo fade-in" >
+    <h1 class="text-info fade-in" > ⚠️ This website is under construction </h1>
+  </div>
 
 
-    <div class="smile_logo" id="smile_logo">
-      <div class="logo">
-        <img class="circle smile" draggable="false" src="/public/svg/albyeah_logo_circle.svg" alt="logo_svg"/>
-
-        
-      </div>
-
-      <div class="logo no-click" >
-        <img class="no-click" id="openEye" draggable="false" src=" " alt="logo_svg"/>
-      </div>
-
-      <div class="logo no-click" >
-        <img class="no-click"  draggable="false" src="/public/svg/albyeah_logo_smile.svg" alt="logo_svg"/>
-      </div>
-      
-    </div>
  
 
-    <div class="bg">
-        <img class="wave wave_small" src="/public/svg/wave.svg" alt="wave_svg"/>
-        <img class="wave wave_big" src="/public/svg/wave_big.svg" alt="wave_svg"/>
-        <div class="container">
-
-          <!--
-          <div class="about-section">
-            <div class="title">
-              <img class="pencil" src="/public/svg/pencil_0.svg" alt="arrow0_svg"/> About
-            </div>
-            <p class="p_text">
-              Hey, there!
-              I’m Alberto Crapanzano, a creative developer based in Milan, Italy.
-            </p>
-            <p class="p_text">
-              What’s a creative developer? Just a NERD with an artistic vein. I
-              specialise in web and videogame development.
-            </p>-->
-            <div class="title">
-              <img class="" src="/public/svg/pc.svg" />
-            </div>
-            <p class="p_text">
-              This page is under construction, so, if you’re interested to know
-              me better, just follow me and let’s keep in touch through my
-              social pages.
-            </p>
-          </div>
-
-
-          <!--
-           <div class="works-section">
-                    <div class="title">
-                        <img class="pc" src="/public/svg/pc.svg" alt="arrow0_svg"/> Works
-                    </div> https://codepen.io/ainalem/pen/JxEqzW
-                </div> -->
-
-          <div class="icons icons_mobile">
-            <a class="instagram_icon" target="_blank" href="https://www.instagram.com/albyeah/">
-              Instagram<img src="/public/svg/instagram_icon.svg" alt="instagram_svg"/>
-            </a>
-            <a class="email_icon" target="_blank" href="mailto:crapaalbi03@gmail.com">
-              E-mail<img src="/public/svg/mail_icon.svg" alt="email_svg" />
-            </a>
-          </div>
-
-          <div class="footer"><h1>© 2023 AlbertoCrapanzano</h1></div>
-        </div>
-        
-    </div>
-    <div class="canvas"></div>
-    
-
-    <!-- JAVASCRIPT -->  
-    <script src="/assets/js/main.js"></script>
+  <!-- JAVASCRIPT -->  
+  <script>
+    let vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+  </script>
 </body>
 </html>
