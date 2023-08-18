@@ -2,3 +2,5 @@ User-agent: Googlebot
 Disallow: /public/svg/albyeah_logo_*.svg
 Disallow: /public/svg/wave.svg
 Disallow: /public/svg/wave_big.svg
+Disallow: /public/svg/ignore/*
+Disallow: /public/svg/smile/*
